@@ -272,8 +272,8 @@ explain:\n\
   {
     strcat( output_species_tree, output_dir);
     strcat( output_species_table_tree, output_dir);
-    write_nwk( t->edge1, t->edge2, seq_name, strcat( output_species_tree, "_species.nwk"));
-    write_species_table(t->edge1, t->edge2, seq_name, strcat( output_species_table_tree, "_table_species.csv"));
+    write_nwk( t->edge1, t->edge2, seq_name, strcat(strcat( output_species_tree, fas_file_name), "_species.nwk"));
+    write_species_table(t->edge1, t->edge2, seq_name, strcat(strcat( output_species_table_tree, fas_file_name), "_table_species.csv"));
   }
   
   // for( int i = 0; i < 2*cterminals -2; i++)
@@ -302,7 +302,7 @@ explain:\n\
   }
   else
   {
-    FILE *f_stat = fopen(strcat(strcat( output_dir, fas_file_name), "_stat.csv"),"w");
+    FILE *f_stat = fopen(strcat(strcat( output_stat, fas_file_name), "_stat.csv"),"w");
     
     if( f_stat == NULL)
     {
@@ -321,7 +321,7 @@ explain:\n\
   /* write the internal nodes distance */
   if( output_dir_len == 0)
   {
-    FILE *f_sta_d = fopen( strcat( fasta_file, ".innode_dist.csv"),"w");
+    FILE *f_sta_d = fopen( strcat( fasta_file, "_innode_dist.csv"),"w");
     if( f_sta_d == NULL)
     {
       printf("Can't open the file:%s\n", fasta_file);
