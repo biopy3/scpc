@@ -1,38 +1,38 @@
 scpc : main.o stack.o newick.o parse_fasta2bin.o opra_matrix.o correct_tip_number.o dist_dna.o statistic.o write_nwk.o root.o fixing_tree.o
-	gcc -o $@ $^
+	cc -o $@ $^
 
 main.o : main.c
-	gcc -c $^
+	cc -c $^
 
 stack.o : stack.c
-	gcc -c $^
+	cc -c $^
 
 newick.o : newick.c
-	gcc -c $^
+	cc -c $^
 
 fixing_tree.o : fixing_tree.c
-	gcc -c $^
+	cc -c $^
 
 correct_tip_number.o : correct_tip_number.c
-	gcc -c $^
+	cc -c $^
 
 parse_fasta2bin.o : parse_fasta2bin.c
-	gcc -c $^
+	cc -c $^
 
 opra_matrix.o : opra_matrix.c
-	gcc -c $^
+	cc -c $^
 
 dist_dna.o : dist_dna.c
-	gcc -c $^
+	cc -c $^
 
 statistic.o : statistic.c
-	gcc -c $^
+	cc -c $^
 
 write_nwk.o : write_nwk.c
-	gcc -c $^
+	cc -c $^
 
 root.o : root.c
-	gcc -c $^
+	cc -c $^
 
 install:
 	cp scpc ../bin
