@@ -10,6 +10,8 @@ extern int cinnodes;
 extern int cterminals;
 extern double *d;
 
+int *cpy_stat_terminals;
+int **terminals;
 int index_min(double *p,int n)
 {
     int i,max_i;
@@ -101,7 +103,7 @@ double get_gap( Tree *t, int *parent, double *sta_d, int **stat, int *bins, doub
   int stat_children[cinnodes];
   int stat_terminals[cinnodes];
   int cpy_stat_children[cinnodes];
-  int cpy_stat_terminals[cinnodes];
+  cpy_stat_terminals = (int*)malloc(cinnodes*sizeof(int));
   int temp[cinnodes];
 
   for( int i = 0; i < cinnodes;i++)
@@ -142,7 +144,8 @@ double get_gap( Tree *t, int *parent, double *sta_d, int **stat, int *bins, doub
   memcpy( cpy_stat_terminals, stat_terminals, sizeof( stat_terminals));
   
   int *children[cinnodes];
-  int *terminals[cinnodes];
+  terminals = (int **)malloc(cinnodes*sizeof(int **));
+
   /* allocate memory for children and terminals */
   for( int i = 0; i < cinnodes; i++)
   {
@@ -325,11 +328,15 @@ double get_gap( Tree *t, int *parent, double *sta_d, int **stat, int *bins, doub
   // printf("gap_index:%d\n", gap_index);
   printf("gap:%lf\n", *stat_min + gap_index * BIN_LEN);
 
+
+
+
+
   /* free children and terminals */
   for( int i = 0; i < cinnodes; i++)
   {
     free(children[i]);
-    free(terminals[i]);
+    // free(terminals[i]);
   }
   return *stat_min + (gap_index + 1) * BIN_LEN;
 }

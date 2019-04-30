@@ -1,5 +1,5 @@
-scpc : main.o stack.o newick.o parse_fasta2bin.o opra_matrix.o correct_tip_number.o dist_dna.o statistic.o write_nwk.o root.o fixing_tree.o
-	cc -lm -o scpc main.o stack.o newick.o parse_fasta2bin.o opra_matrix.o correct_tip_number.o dist_dna.o statistic.o write_nwk.o root.o fixing_tree.o
+scpc : main.o stack.o newick.o parse_fasta2bin.o opra_matrix.o correct_tip_number.o dist_dna.o statistic.o write_nwk.o root.o write_species.o
+	cc -lm -o scpc main.o stack.o newick.o parse_fasta2bin.o opra_matrix.o correct_tip_number.o dist_dna.o statistic.o write_nwk.o root.o write_species.o
 
 main.o : main.c
 	cc -c main.c
@@ -10,8 +10,8 @@ stack.o : stack.c
 newick.o : newick.c
 	cc -c newick.c
 
-fixing_tree.o : fixing_tree.c
-	cc -c fixing_tree.c
+write_species.o : write_species.c
+	cc -c write_species.c
 
 correct_tip_number.o : correct_tip_number.c
 	cc -c correct_tip_number.c
@@ -38,4 +38,4 @@ install:
 	cp scpc ../bin
 
 clean:
-	rm main.o stack.o newick.o parse_fasta2bin.o opra_matrix.o fixing_tree.o correct_tip_number.o dist_dna.o statistic.o write_nwk.o root.o scpc 
+	rm main.o stack.o newick.o parse_fasta2bin.o opra_matrix.o write_species.o correct_tip_number.o dist_dna.o statistic.o write_nwk.o root.o scpc 

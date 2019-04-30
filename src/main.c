@@ -6,7 +6,7 @@
 #include "dist_dna.h"
 #include "statistic.h"
 #include "write_nwk.h"
-#include "fixing_tree.h"
+#include "write_species.h"
 
 #define _FILE_NAME_LEN 260
 #define _MAX_FILES 99
@@ -259,25 +259,25 @@ explain:\n\
   fclose( f_dmat);
   free(d);
 
-  /* fixing tree */
-  fixing_tree( t, gap, sta_d, parent);
-
-  /* Write the species tree */
+ 
+  /* Write the species table */
   char output_species_tree[ FILENAME_MAX] = {0};
   char output_species_table_tree[ FILENAME_MAX] = {0};
   if( output_dir_len == 0)
   {
     strcat( output_species_tree, fasta_file);
     strcat( output_species_table_tree, fasta_file);
-    write_nwk( t->edge1, t->edge2, seq_name, strcat( output_species_tree, "_species.nwk"));
-    write_species_table(t->edge1, t->edge2, seq_name, strcat( output_species_table_tree, "_table_species.csv"));
+    write_species( seq_name, gap, sta_d, parent, strcat( output_species_tree, "_table_species.csv"));
+    // write_nwk( t->edge1, t->edge2, seq_name, strcat( output_species_tree, "_species.nwk"));
+    // write_species_table(t->edge1, t->edge2, seq_name, strcat( output_species_table_tree, "_table_species.csv"));
   }
   else
   {
     strcat( output_species_tree, output_dir);
     strcat( output_species_table_tree, output_dir);
-    write_nwk( t->edge1, t->edge2, seq_name, strcat(strcat( output_species_tree, fas_file_name), "_species.nwk"));
-    write_species_table(t->edge1, t->edge2, seq_name, strcat(strcat( output_species_table_tree, fas_file_name), "_table_species.csv"));
+    write_species( seq_name, gap, sta_d, parent, strcat(strcat( output_species_table_tree, fas_file_name), "_table_species.csv"));
+    // write_nwk( t->edge1, t->edge2, seq_name, strcat(strcat( output_species_tree, fas_file_name), "_species.nwk"));
+    // write_species_table(t->edge1, t->edge2, seq_name, strcat(strcat( output_species_table_tree, fas_file_name), "_table_species.csv"));
   }
   
   // for( int i = 0; i < 2*cterminals -2; i++)
