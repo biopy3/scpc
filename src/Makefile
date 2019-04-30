@@ -1,5 +1,5 @@
 scpc : main.o stack.o newick.o parse_fasta2bin.o opra_matrix.o correct_tip_number.o dist_dna.o statistic.o write_nwk.o root.o fixing_tree.o
-	cc -o scpc main.o stack.o newick.o parse_fasta2bin.o opra_matrix.o correct_tip_number.o dist_dna.o statistic.o write_nwk.o root.o fixing_tree.o
+	cc -lm -o scpc main.o stack.o newick.o parse_fasta2bin.o opra_matrix.o correct_tip_number.o dist_dna.o statistic.o write_nwk.o root.o fixing_tree.o
 
 main.o : main.c
 	cc -c main.c

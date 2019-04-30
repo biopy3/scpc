@@ -300,10 +300,10 @@ double get_gap( Tree *t, int *parent, double *sta_d, int **stat, int *bins, doub
     }    
   }
 
-  for( int i = 0; i < *bins; i++)
-  {
-      printf("stat[%d]:%d\n", i, (*stat)[i]);
-  }
+  // for( int i = 0; i < *bins; i++)
+  // {
+  //     printf("stat[%d]:%d\n", i, (*stat)[i]);
+  // }
 
   int gap_index = (*stat)[0];
   for( int i = 0; i < *bins-1; i++)

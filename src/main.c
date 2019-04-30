@@ -181,7 +181,11 @@ explain:\n\
       printf("exit!\n");
       exit(1);
   }
-
+  // for( int i = 0; i < cterminals; i++)
+  // {
+  //   printf("seq_name[%d]:%s", i, seq_name[i]);
+  // }
+  
   correct_tip_number( t, seq_name);
   transpose(Seqs, cterminals, len_seq[0]);
   d = dist_dna_api( Seqs, model, 0, 0, 0, 0, &cterminals, &num_distances,
