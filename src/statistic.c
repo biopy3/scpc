@@ -331,5 +331,5 @@ double get_gap( Tree *t, int *parent, double *sta_d, int **stat, int *bins, doub
     free(children[i]);
     free(terminals[i]);
   }
-  return *stat_min + gap_index * BIN_LEN;
+  return *stat_min + (gap_index + 1) * BIN_LEN;
 }
