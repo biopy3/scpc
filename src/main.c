@@ -306,6 +306,7 @@ explain:\n\
   }
   else
   {
+    strcat( output_stat, output_dir);
     FILE *f_stat = fopen(strcat(strcat( output_stat, fas_file_name), "_stat.csv"),"w");
     
     if( f_stat == NULL)
